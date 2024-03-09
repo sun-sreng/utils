@@ -1,6 +1,7 @@
 {
   "name": "@gmana/utils",
   "version": "0.0.1",
+  "description": "A collection of useful routines to simplify cross runtime (Node, Deno and Bun) development.",
   "exports": "./mod.ts",
   "imports": { "@std/assert": "https://deno.land/std@0.219.0/assert/mod.ts" },
   "fmt": {

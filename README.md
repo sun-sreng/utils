@@ -1,7 +1,6 @@
 # @gmana/utils
 
-**Work in progress** A collection of useful routines to simplify cross runtime
-(Node, Deno and Bun) development.
+**Work in progress** A collection of useful routines to simplify cross runtime (Node, Deno and Bun) development.
 
 Available for Node, Deno Bun and Browser at
 [jsr.io/@gmana/utils](https://jsr.io/@gmana/utils), and works seamlessly with
