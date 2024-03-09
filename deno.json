@@ -1,0 +1,9 @@
+{
+  "name": "@gmana/utils",
+  "version": "0.0.1",
+  "exports": "./mod.ts",
+  "imports": { "@std/assert": "https://deno.land/std@0.219.0/assert/mod.ts" },
+  "fmt": {
+    "lineWidth": 180
+  }
+}
