@@ -3,8 +3,8 @@
  * converting to lowercase, removing non-alphanumeric characters,
  * replacing spaces with dashes, and trimming.
  */
-export function slugify(...args: (string | number)[]) {
-  const value = args.join(' ');
+export function slugify(value: string) {
+  if (!value) return '';
 
   return value
     .normalize('NFD') // split an accented letter in the base letter and the accent
