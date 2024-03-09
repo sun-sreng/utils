@@ -3,7 +3,7 @@
  * converting to lowercase, removing non-alphanumeric characters,
  * replacing spaces with dashes, and trimming.
  */
-export function slugify(value: string) {
+export function slugify(value: string): string {
   if (!value) return '';
 
   return value
