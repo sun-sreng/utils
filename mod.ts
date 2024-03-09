@@ -1,1 +1,1 @@
-export { slugify } from './lib/slugify.ts';
+export { slugify } from "./lib/slugify.ts";
