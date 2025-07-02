@@ -1,4 +1,4 @@
-export * from "./lib/absolute-url";
+export * from "./lib/absolute-url.ts";
 export * from "./lib/array-utils.ts";
 export * from "./lib/clsx.ts";
 export * from "./lib/cn.ts";
