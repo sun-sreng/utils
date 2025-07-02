@@ -1,9 +1,12 @@
-import { assertEquals } from "@std/assert";
+import { describe, expect, it } from "vitest";
 import { slugify } from "./slugify.ts";
 
-Deno.test("slugify", () => {
-  const actual = slugify(" Git$Hub_ request^% spLit lET_Ter ");
-  const expected = "github-request-split-letter";
+describe("slugify", () => {
+  it("should convert a string to a slug", () => {
+    const input = " Git$Hub_ request^% spLit lET_Ter ";
+    const expected = "github-request-split-letter";
+    const actual = slugify(input);
 
-  assertEquals(actual, expected);
+    expect(actual).toBe(expected);
+  });
 });
