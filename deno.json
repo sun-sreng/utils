@@ -1,6 +1,6 @@
 {
   "name": "@gmana/utils",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A collection of useful routines to simplify cross runtime (Node, Deno and Bun) development.",
   "exports": "./mod.ts",
   "imports": {
