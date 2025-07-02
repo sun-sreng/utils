@@ -260,9 +260,9 @@ export const formatCurrency = ({
 }): string =>
   currencyCode
     ? new Intl.NumberFormat(locale, {
-        style: "currency",
-        currency: currencyCode,
-        minimumFractionDigits: minFractionDigits,
-        maximumFractionDigits: maxFractionDigits,
-      }).format(amount)
+      style: "currency",
+      currency: currencyCode,
+      minimumFractionDigits: minFractionDigits,
+      maximumFractionDigits: maxFractionDigits,
+    }).format(amount)
     : amount.toString();

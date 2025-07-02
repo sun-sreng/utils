@@ -1,30 +1,30 @@
-type JSONPrimitive = string | number | boolean | null | undefined
+type JSONPrimitive = string | number | boolean | null | undefined;
 
 interface JSONObject {
-  [key: string]: JSONValue
+  [key: string]: JSONValue;
 }
 
-type JSONArray = Array<JSONValue>
+type JSONArray = Array<JSONValue>;
 
-type JSONValue = JSONPrimitive | JSONObject | JSONArray
+type JSONValue = JSONPrimitive | JSONObject | JSONArray;
 
 /**
  * Configuration options for the compactObject function
  */
 interface CompactOptions {
   /** Whether to compact arrays recursively (default: true) */
-  compactArrays?: boolean
+  compactArrays?: boolean;
   /** Whether to remove empty arrays (default: false) */
-  removeEmptyArrays?: boolean
+  removeEmptyArrays?: boolean;
   /** Custom predicate to determine if a value should be removed */
-  isEmpty?: (value: unknown) => boolean
+  isEmpty?: (value: unknown) => boolean;
 }
 
 /**
  * Default function to check if a value is considered "empty" and should be removed
  */
 function isEmptyValue(value: unknown): boolean {
-  return value === "" || value === undefined || value === null
+  return value === "" || value === undefined || value === null;
 }
 
 /**
@@ -53,14 +53,14 @@ function isEmptyValue(value: unknown): boolean {
  * ```
  */
 export function compactObject<T extends Record<string, unknown>>(obj: T, options: CompactOptions = {}): Partial<T> {
-  const { compactArrays = true, removeEmptyArrays = false, isEmpty = isEmptyValue } = options
+  const { compactArrays = true, removeEmptyArrays = false, isEmpty = isEmptyValue } = options;
 
-  const result: Partial<T> = {}
+  const result: Partial<T> = {};
 
   for (const [key, value] of Object.entries(obj)) {
     // Skip empty values
     if (isEmpty(value)) {
-      continue
+      continue;
     }
 
     // Handle arrays
@@ -71,39 +71,39 @@ export function compactObject<T extends Record<string, unknown>>(obj: T, options
           .map((item) => {
             // Recursively compact nested objects within arrays
             if (item && typeof item === "object" && !Array.isArray(item)) {
-              const compactedItem = compactObject(item as Record<string, unknown>, options)
+              const compactedItem = compactObject(item as Record<string, unknown>, options);
               // Only include the object if it has properties after compacting
-              return Object.keys(compactedItem).length > 0 ? compactedItem : null
+              return Object.keys(compactedItem).length > 0 ? compactedItem : null;
             }
-            return item
+            return item;
           })
-          .filter((item) => item !== null) // Remove any objects that became empty after compacting
+          .filter((item) => item !== null); // Remove any objects that became empty after compacting
 
         if (!removeEmptyArrays || compactedArray.length > 0) {
-          result[key as keyof T] = compactedArray as T[keyof T]
+          result[key as keyof T] = compactedArray as T[keyof T];
         }
       } else {
-        result[key as keyof T] = value as T[keyof T]
+        result[key as keyof T] = value as T[keyof T];
       }
-      continue
+      continue;
     }
 
     // Handle nested objects
     if (value && typeof value === "object") {
-      const compactedNested = compactObject(value as Record<string, unknown>, options)
+      const compactedNested = compactObject(value as Record<string, unknown>, options);
 
       // Only include the nested object if it has properties after compacting
       if (Object.keys(compactedNested).length > 0) {
-        result[key as keyof T] = compactedNested as T[keyof T]
+        result[key as keyof T] = compactedNested as T[keyof T];
       }
-      continue
+      continue;
     }
 
     // Handle primitive values (string, number, boolean)
-    result[key as keyof T] = value as T[keyof T]
+    result[key as keyof T] = value as T[keyof T];
   }
 
-  return result
+  return result;
 }
 
 /**
@@ -111,5 +111,5 @@ export function compactObject<T extends Record<string, unknown>>(obj: T, options
  * and provides better type safety for JSON use cases.
  */
 export function compactJSONObject<T extends JSONObject>(obj: T, options: CompactOptions = {}): Partial<T> {
-  return compactObject(obj, options) as Partial<T>
+  return compactObject(obj, options) as Partial<T>;
 }

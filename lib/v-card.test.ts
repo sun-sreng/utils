@@ -8,7 +8,7 @@
 
 import { describe, expect, test, vi } from "vitest";
 
-import { VCardGenerator, type IAddress, type IMessagingPlatforms, type ISocialMedia, type VCardContact } from "./v-card.ts";
+import { type IAddress, type IMessagingPlatforms, type ISocialMedia, type VCardContact, VCardGenerator } from "./v-card.ts";
 
 describe("VCardGenerator", () => {
   describe("Basic Contact Generation", () => {

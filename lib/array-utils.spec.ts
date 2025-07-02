@@ -85,8 +85,8 @@ describe("array-utils", () => {
       arrayUtils.sortBy(
         arr,
         (x) => x.a,
-        (x) => x.b
-      )
+        (x) => x.b,
+      ),
     ).toEqual([
       { a: 1, b: 1 },
       { a: 1, b: 2 },

@@ -22,7 +22,7 @@ export function absoluteUrl(
     query?: Record<string, string | number | boolean | null | undefined>;
     fragment?: string;
     baseUrl?: string;
-  }
+  },
 ): string {
   const baseUrl = options?.baseUrl || process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 
@@ -56,7 +56,7 @@ function buildUrl(
   options?: {
     query?: Record<string, string | number | boolean | null | undefined>;
     fragment?: string;
-  }
+  },
 ): string {
   let url = `${baseUrl}${path}`;
 

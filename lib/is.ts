@@ -140,7 +140,7 @@ export function isValidComponentName(
     allowEmpty?: boolean;
     minLength?: number;
     maxLength?: number;
-  } = {}
+  } = {},
 ): ComponentValidationResult {
   const { allowEmpty = false, minLength = 1, maxLength = 50 } = options;
 
@@ -253,7 +253,7 @@ function base64UrlDecode(str: string): string {
   if (typeof globalThis !== "undefined" && typeof (globalThis as { atob?: (input: string) => string }).atob === "function") {
     // Browser or environments with atob
     return decodeURIComponent(
-      Array.prototype.map.call((globalThis as { atob: (input: string) => string }).atob(base64Str), (c: string) => `%${("00" + c.charCodeAt(0).toString(16)).slice(-2)}`).join("")
+      Array.prototype.map.call((globalThis as { atob: (input: string) => string }).atob(base64Str), (c: string) => `%${("00" + c.charCodeAt(0).toString(16)).slice(-2)}`).join(""),
     );
   }
   if (typeof Buffer !== "undefined") {

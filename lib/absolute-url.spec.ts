@@ -69,7 +69,7 @@ describe("absoluteUrl", () => {
       expect(
         absoluteUrl("/api/users", {
           query: { id: 123, active: true, name: "john" },
-        })
+        }),
       ).toBe("http://localhost:3000/api/users?id=123&active=true&name=john");
     });
 
@@ -77,7 +77,7 @@ describe("absoluteUrl", () => {
       expect(
         absoluteUrl("/api/users", {
           query: { id: "123", active: null, name: undefined },
-        })
+        }),
       ).toBe("http://localhost:3000/api/users?id=123");
     });
 
@@ -89,7 +89,7 @@ describe("absoluteUrl", () => {
       expect(
         absoluteUrl("/api/search", {
           query: { q: "hello world", category: "test&value" },
-        })
+        }),
       ).toBe("http://localhost:3000/api/search?q=hello+world&category=test%26value");
     });
   });
@@ -128,7 +128,7 @@ describe("absoluteUrl", () => {
         absoluteUrl("/api/users", {
           query: { id: "123" },
           fragment: "details",
-        })
+        }),
       ).toBe("http://localhost:3000/api/users?id=123#details");
     });
 
@@ -138,7 +138,7 @@ describe("absoluteUrl", () => {
           baseUrl: "https://custom.com",
           query: { id: "123", active: true },
           fragment: "details",
-        })
+        }),
       ).toBe("https://custom.com/api/users?id=123&active=true#details");
     });
   });
