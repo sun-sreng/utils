@@ -92,14 +92,14 @@ export function convertCase(input: string, caseType: CaseType): string {
  * Utility function to convert strings to common case formats with shorter names.
  */
 export const toCase = {
-  lower: (input: string) => convertCase(input, "lowercase"),
-  upper: (input: string) => convertCase(input, "uppercase"),
-  sentence: (input: string) => convertCase(input, "sentence"),
-  title: (input: string) => convertCase(input, "title"),
-  snake: (input: string) => convertCase(input, "snake"),
-  kebab: (input: string) => convertCase(input, "kebab"),
-  camel: (input: string) => convertCase(input, "camel"),
-  pascal: (input: string) => convertCase(input, "pascal"),
-  dot: (input: string) => convertCase(input, "dot"),
-  constant: (input: string) => convertCase(input, "constant"),
+  lower: (input: string): string => convertCase(input, "lowercase"),
+  upper: (input: string): string => convertCase(input, "uppercase"),
+  sentence: (input: string): string => convertCase(input, "sentence"),
+  title: (input: string): string => convertCase(input, "title"),
+  snake: (input: string): string => convertCase(input, "snake"),
+  kebab: (input: string): string => convertCase(input, "kebab"),
+  camel: (input: string): string => convertCase(input, "camel"),
+  pascal: (input: string): string => convertCase(input, "pascal"),
+  dot: (input: string): string => convertCase(input, "dot"),
+  constant: (input: string): string => convertCase(input, "constant"),
 };

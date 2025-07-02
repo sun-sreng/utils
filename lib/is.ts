@@ -8,7 +8,7 @@ export const isServer = typeof window === "undefined";
 /**
  * Checks if the given value is an array.
  */
-export const isArray = (input: unknown) => Array.isArray(input);
+export const isArray = (input: unknown): input is unknown[] => Array.isArray(input);
 
 /**
  * Checks if the given value is a boolean primitive.
@@ -24,7 +24,7 @@ export const isDev = process.env.NODE_ENV === "development" || process.env.NODE_
 /**
  * Checks if the given value is empty.
  */
-export const isEmpty = (input: unknown) => {
+export const isEmpty = (input: unknown): boolean => {
   return (
     input === null ||
     input === undefined ||
@@ -49,7 +49,7 @@ export const isNavigator = typeof navigator !== "undefined";
 /**
  * Checks if the given value is a number.
  */
-export const isNumber = (value: unknown) => typeof value === "number" && Number.isNaN(value) === false;
+export const isNumber = (value: unknown): boolean => typeof value === "number" && Number.isNaN(value) === false;
 
 /**
  * Checks if the given value is an object.
@@ -65,7 +65,7 @@ export const isString = (value: unknown) => typeof value === "string";
 /**
  * Checks if the given value is a symbol.
  */
-export function isSymbol(value: unknown) {
+export function isSymbol(value: unknown): boolean {
   return typeof value === "symbol" || (value != null && typeof value === "object" && Object.prototype.toString.call(value) === "[object Symbol]");
 }
 
@@ -205,7 +205,7 @@ export function isValidComponentName(
  * @param str - The string to check.
  * @returns True if the string is valid JSON, false otherwise.
  */
-export function isValidJsonString(str: string) {
+export function isValidJsonString(str: string): boolean {
   try {
     JSON.parse(str);
   } catch {
